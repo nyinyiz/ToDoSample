@@ -10,6 +10,7 @@ class ToDoViewHolder(itemView : View) : RecyclerView.ViewHolder(itemView) {
     public fun binData(data : TodoEntity) {
         itemView.tvTitle.text = data.title
         itemView.tvDescription.text = data.content
+        itemView.tvDate.text = data.dateTime
     }
 
 }

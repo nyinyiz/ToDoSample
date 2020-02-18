@@ -27,10 +27,10 @@ class AddNoteActivity : AppCompatActivity() {
 
         btnSave.setOnClickListener {
             if (!edTitle.text.isNullOrEmpty() && !edDescription.text.isNullOrEmpty()) {
-                val sdf = SimpleDateFormat("yyyyMMdd_HHmmss", Locale.getDefault())
-                val currentDateandTime = sdf.format(Date())
+                val format = SimpleDateFormat("M/d/y H:m:ss")
+                val currentDate =  format.format(Date()).toString()
 
-                var todoEntity = TodoEntity(edTitle.text.toString(), edDescription.text.toString(),currentDateandTime)
+                var todoEntity = TodoEntity(edTitle.text.toString(), edDescription.text.toString(),currentDate)
                 GlobalScope.launch {
                     db.TodoDao().insertAll(todoEntity)
                     finish()
