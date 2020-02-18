@@ -24,6 +24,7 @@
         android:layout_below="@id/tvTitle"
         android:textSize="12sp"/>
     <TextView
+        android:id="@+id/tvDescription"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="No additional text"
