@@ -28,6 +28,7 @@ class MainActivity : AppCompatActivity() {
         when(item.itemId) {
             R.id.action_add -> {
                 Toast.makeText(this,"Add TODO list",Toast.LENGTH_LONG).show()
+                startActivity(AddNoteActivity().newInstance(this))
             }
         }
         return super.onOptionsItemSelected(item)
