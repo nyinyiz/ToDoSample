@@ -9,7 +9,7 @@ import androidx.room.PrimaryKey
 data class TodoEntity(
     @ColumnInfo(name = "title") var title: String,
     @ColumnInfo(name = "content") var content: String,
-    @ColumnInfo(name = "currentDate") var dateTime : String
+    @ColumnInfo(name = "currentDate") var dateTime: String
 ) {
     @PrimaryKey(autoGenerate = true)
     var id: Int = 0

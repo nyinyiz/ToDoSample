@@ -7,6 +7,9 @@ interface TodoDao {
     @Query("SELECT * FROM todo_items")
     fun getAll(): List<TodoEntity>
 
+    @Query("SELECT * FROM todo_items WHERE id = :id")
+    fun findById(id: Int): TodoEntity
+
     @Query("SELECT * FROM todo_items WHERE title LIKE :title")
     fun findByTitle(title: String): TodoEntity
 

@@ -6,11 +6,17 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.todoexample.data.local.TodoEntity
 
-class ToDoRecyclerAdapter(var context : Context) : RecyclerView.Adapter<ToDoViewHolder>() {
-    private var todoList : List<TodoEntity> = listOf()
+class ToDoRecyclerAdapter(var context: Context, var callBack : ToDoViewHolder.ItemViewCallBack) : RecyclerView.Adapter<ToDoViewHolder>() {
+    private var todoList: List<TodoEntity> = listOf()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ToDoViewHolder {
-        return ToDoViewHolder(LayoutInflater.from(context).inflate(R.layout.item_list_todo, parent, false))
+        return ToDoViewHolder(
+            LayoutInflater.from(context).inflate(
+                R.layout.item_list_todo,
+                parent,
+                false
+            )
+        )
     }
 
     override fun getItemCount(): Int {
@@ -18,10 +24,10 @@ class ToDoRecyclerAdapter(var context : Context) : RecyclerView.Adapter<ToDoView
     }
 
     override fun onBindViewHolder(holder: ToDoViewHolder, position: Int) {
-        holder.binData(todoList[position])
+        holder.binData(todoList[position], callBack)
     }
 
-    public fun setToDo(datas : List<TodoEntity>) {
+    fun setToDo(datas: List<TodoEntity>) {
         todoList = datas
     }
 }
